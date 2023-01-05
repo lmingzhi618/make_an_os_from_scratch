@@ -17,11 +17,11 @@ extern "C" void _start() {
     void* addr3 = Malloc(0x10);
 
     PrintString(HexToString((uint_64)addr1));
-    PrintString("\n\r");
+    PrintString("\n");
     PrintString(HexToString((uint_64)addr2));
-    PrintString("\n\r");
+    PrintString("\n");
     PrintString(HexToString((uint_64)addr3));
-    PrintString("\n\r");
+    PrintString("\n");
     
     Free(addr1);
     Free(addr2);
