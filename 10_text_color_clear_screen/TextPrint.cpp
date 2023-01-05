@@ -38,7 +38,6 @@ uint_16 PositionFromCoords(uint_8 x, uint_8 y) {
     return y * VGA_WIDTH + x;
 }
 
-/* Função para Imprimir Caracteres*/
 void PrintString(const char* str, uint_8 color = BACKGROUND_BLACK | FOREGROUND_WHITE) {
     uint_8* ptr = (uint_8*)str;
     uint_16 idx = CursorPosition;
@@ -46,14 +45,13 @@ void PrintString(const char* str, uint_8 color = BACKGROUND_BLACK | FOREGROUND_W
         switch (*ptr) {
             case 10:
                 idx += VGA_WIDTH;
-                break;
-            case 13:
                 idx -= idx % VGA_WIDTH;
                 break;
             default:
                 *(VGA_MEMORY + idx * 2) = *ptr;
                 *(VGA_MEMORY + idx * 2 + 1) = color;
                 idx++;
+                break;
         }
         ptr++;
     }
